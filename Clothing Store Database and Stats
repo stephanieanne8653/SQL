@@ -1,0 +1,29 @@
+- Create a clothing store database
+
+CREATE TABLE clothingstore ( id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle INTEGER, in_stock TEXT, quantity INTEGER );
+
+INSERT INTO clothingstore VALUES (1, "Shirts", 5, 1, "Y", 6);
+INSERT INTO clothingstore VALUES (2, "Pants", 8, 1, "Y", 7);
+INSERT INTO clothingstore VALUES (3, "Shorts", 7, 1,"N", 0);
+INSERT INTO clothingstore VALUES (4, "Shoes", 12, 2, "Y", 4);
+INSERT INTO clothingstore VALUES (5, "Sweaters", 10, 1, "Y", 3);
+INSERT INTO clothingstore VALUES (6, "Backpacks", 15, 3, "Y", 2);
+INSERT INTO clothingstore VALUES (7, "Purses", 15, 3, "Y", 2);
+INSERT INTO clothingstore VALUES (8, "Cosmetics", 3, 4, "Y", 7);
+INSERT INTO clothingstore VALUES (9, "Perfume", 5, 4, "Y", 3);
+INSERT INTO clothingstore VALUES (10, "Swim Suits", 10, 2, "N", 0);
+INSERT INTO clothingstore VALUES (11, "Glasses", 8, 4, "Y", 4); 
+INSERT INTO clothingstore VALUES (12, "Jewelry", 12, 4, "Y", 5);
+INSERT INTO clothingstore VALUES (13, "Hats", 6, 4, "N", 0);
+INSERT INTO clothingstore VALUES (14, "Socks", 2, 2, "Y", 10);
+INSERT INTO clothingstore VALUES (15, "Watches", 15, 4, "Y",2);
+
+- Display the database ordered by price
+SELECT * FROM clothingstore ORDER BY price;
+
+- Display items with a price less than $10 that are in stock ordered by aisle
+SELECT * FROM clothingstore WHERE price < 10 and in_stock = "Y" ORDER BY aisle asc;
+
+- Display total amount of items per aisle
+SELECT aisle, SUM(quantity) FROM clothingstore group by aisle;
+
